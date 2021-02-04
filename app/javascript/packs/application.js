@@ -7,7 +7,17 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import Vue from 'vue'
+import TypeChanger from '../views/type-changer.vue'
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+function init(_event){
+    if (document.getElementById("type-changer")) {
+        new Vue({render: h => h(TypeChanger)}).$mount('#type-changer')
+    }
+}
+
+document.addEventListener("DOMContentLoaded", init);
