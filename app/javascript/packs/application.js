@@ -9,6 +9,8 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import Vue from 'vue'
 import TypeChanger from '../views/type-changer.vue'
+import Wizard from '../views/wizard.vue'
+import 'bulma/bulma.sass'
 
 Rails.start()
 Turbolinks.start()
@@ -17,6 +19,9 @@ ActiveStorage.start()
 function init(_event){
     if (document.getElementById("type-changer")) {
         new Vue({render: h => h(TypeChanger)}).$mount('#type-changer')
+    }
+    if (document.getElementById("wizard")) {
+        new Vue({render: h => h(Wizard)}).$mount('#wizard')
     }
 }
 
